@@ -1,0 +1,245 @@
+/*:root = faz referencia a raiz do documento html
+dentro pode ser inclusas propriedades que são repetidas 
+no decorrer da formaação, isso através de variaveis
+a partir das variaveis basta usa-las onde deseja o que atributo faz
+*/
+
+:root {
+    --title-color: #322153;
+    --primary-color: #34cb79;
+}
+
+
+/*seletor * referencia todos os seletores*/
+
+* {
+    /*tirando espaços externos e internos de toda a pagina*/
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /*font-family para todo html*/
+    /*obs: quando temos apenas 1 tipo de font o nome não precisa estar entre aspas simples ''*/
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    /*cor de fundo de toda pagina*/
+    background: #f0f0f5;
+    /*deixar a font mais gostosa de se ver - n entendi nada*/
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    /*removendo o sublinhado de todo link encontrado na pagina*/
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*padronizando cor e font-family de titulos h1-2-3-4-5-6*/
+    font-family: Ubuntu, sans-serif;
+    color: var(--title-color);
+}
+
+#page-home {
+    /*viewport = tamanho dinamico relacionado ao tamanho da janela do navegador
+    100vh = viewport height: isso faz com que o background ocupe todo o espaço 
+    vazio relacionado a altura da janela*/
+    height: 100vh;
+    /*inserindo uma img via url e 
+    no-repeat = para a img n repetir quando acabar o tamanho dela em tela*/
+    background: url('../assets/home-background.svg') no-repeat;
+    /*35vw = viewport width: isso faz com que o background ocupe um espaço 
+    maior relacionado a largura da janela.
+    background-position = é para ter a posição relacionado ao eixo X e eixo Y da janela
+    bottom = é pra deixar a img grudada embaixo no bottom*/
+    background-position: 35vw bottom;
+}
+
+#page-home .content {
+    /*porcentagem = tamanho dinamico
+    definindo em porcentagem o tamanho da propriedade em tela
+    quando definido em % a tela se ajusta conforme voc aumenta ou reduz*/
+    width: 90%;
+    /*pixels = tamanho fixo
+    definindo um tamanho maximo pra tela em pixels*/
+    max-width: 1100px;
+    /*inserindo valores em uma unica propriedade:
+    Ordem das propriedades: top-right-bottom-left
+    se inserir apenas dois valores ele considera como: 
+    1°: top/bottom - 2°: right/left 
+    sempre sentido horario começando em top, 
+    pode inserir 1, 2, 3 ou os 4 valores para a propriedade escolhida
+    Tipos de propriedades:
+    padding: é a margem interna do box - distancia interna
+    border: é a borda
+    margin: é o lado externo do box - distancia externa*/
+    margin: 0 auto;
+    /*display flex ao adiciona-lo faz com que o comportamento dos filhos (header, main)
+    se tornem conteudos inline*/
+    display: flex;
+    /*flex-direction: column faz com que ele fique inline, porem lado-a-lado com um flow de coluna*/
+    flex-direction: column;
+    /*height: 100% - com isso defininos uma altura dinamica ocupando toda a altura*/
+    height: 100%;
+}
+
+#page-home header {
+    /*espaçamento fixo para o lado de cima da janela*/
+    margin-top: 48px;
+    /*colocando os atributos inline (na mesma linha da pagina)*/
+    display: flex;
+    /*centralizando os itens na linha - horizontal*/
+    align-items: center;
+    /*deixando espaço entre os atributos*/
+    justify-content: space-between;
+}
+
+#page-home header a {
+    /*faz com que os elementos dentro da tag <a> fiquem inline*/
+    display: flex;
+    /*cor da font*/
+    color: var(--title-color);
+    /*peso da font*/
+    font-weight: 700;
+}
+
+#page-home header a span {
+    /*faz com que os elementos dentro da tag <a><span> fiquem inline*/
+    display: flex;
+    /*insere a img no background da <span>*/
+    background-image: url('../assets/log-in.svg');
+    /*configura um tamanho fixo para este <span>, no caso para img do fundo*/
+    width: 20px;
+    height: 20px;
+    /*espaçamento inline entre icon e link*/
+    margin-right: 16px;
+}
+
+#page-home main {
+    /*largura maxima para o conteudo da tag <main>*/
+    max-width: 560px;
+    /* flex: 1 - significa que ele vai ficar automatico
+    preenchendo tudo que ele puder - funciona junto do display flex*/
+    flex: 1;
+    /*para deixar a altura de crescimento dinamica:
+    deixando o display flex (inline, porem em coluna)*/
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center para centralizar o conteudo na coluna*/
+    justify-content: center;
+}
+
+#page-home main h1 {
+    font-size: 54px;
+}
+
+#page-home main p {
+    font-size: 24px;
+    /*line-height: altura da linha*/
+    line-height: 38px;
+    margin-top: 24px;
+}
+
+#page-home main a {
+    width: 100%;
+    max-width: 360px;
+    height: 72px;
+    background-color: var(--primary-color);
+    /*arredondamento de bordas*/
+    border-radius: 8px;
+    /*para alinhar o conteudo do botão preciso 
+    deixar o display flex, depois align-items: center (alinha na horizontal)*/
+    display: flex;
+    align-items: center;
+    /*margin-top para distanciar o botão da frase de cima*/
+    margin-top: 40px;
+    /*transition: para dar um atraso no tempo na hora do efeito do :hover*/
+    transition: 400ms;
+}
+
+
+/*a:hover - é para quando o mouse passar em cima criar o efeito selecionado na propriedade*/
+
+#page-home main a:hover {
+    /*efeito de alterar a cor de fundo*/
+    background-color: #2fb86e;
+}
+
+#page-home main a span {
+    width: 72px;
+    height: 72px;
+    /*rgba: propriedade de cor RGB-alfa 
+    (a condição alfa é a transparencia)
+    RGB vai de 0 a 255 && alfa vai de 0 a 1*/
+    background-color: rgba(0, 0, 0, 0.8);
+    /*arredondando a borda do do <span> para deixar igual da tag <a>*/
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    /*display flex para a img do <span> aparecer*/
+    display: flex;
+    /*centralizando a img*/
+    /*horizontal*/
+    align-items: center;
+    /*vertical*/
+    justify-content: center;
+}
+
+
+/*pseudo elemento: elementos que não existe no html e são criados via css*/
+
+#page-home main a span::after {
+    /*elemento vazio que foi criado para poder inserir a img*/
+    content: "";
+    background-image: url('../assets/search.svg');
+    /*definindo tamanho da img/elemento*/
+    width: 20px;
+    height: 20px;
+    /*a img só aparece se o pai<span> estiver com display flex*/
+}
+
+#page-home main a strong {
+    /*configurando o texto do botao tag <a> - pesquisar pontos de coleta*/
+    /*flex pra ocupar todo o espaço restante
+    (obs: funciona pq o 'pai' tag <a> já tem display flex)*/
+    flex: 1;
+    color: #fff;
+    text-align: center;
+}
+
+
+/*RESPONSIVO - usando viewport*/
+
+
+/*largura maxima até 900px as propriedades mudam para: */
+
+@media (max-width: 900px) {
+    #page-home {
+        background-position-x: 70vw;
+    }
+    #page-home .content {
+        align-items: center;
+        text-align: center;
+    }
+    #page-home header a {
+        /*position: absolute vai sobrepor o conteudo header tag <a> 
+        sobre todo o conteudo da pagina*/
+        position: absolute;
+        /*bottom 48px: vai colocar o conteudo com um distanciamento do bottom de 48px */
+        bottom: 48px;
+        /*centralizando o conteudo*/
+        /*left 50% vai jogar o conteudo 50% do lado esquerdo*/
+        left: 50%;
+        /*transform: translateX(-50%) vai encontrar o centro*/
+        transform: translateX(-50%);
+    }
+    #page-home main {
+        align-items: center;
+    }
+}
