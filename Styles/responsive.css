@@ -1,0 +1,57 @@
+/*RESPONSIVO - media queries*/
+
+/* regra de largura maxima
+max-width: 900px = significa que de 0px a 900px 
+ele vai agir conforme as propriedades que colocarmos dentro desse @media */
+@media (max-width: 900px) {
+    #page-home {
+        /*ajustando a posição (x) do background*/
+        background-position-x: 70vw;
+    }
+    #page-home .content {
+        /*alinhando itens do content ao centro*/
+        align-items: center;
+        text-align: center;
+    }
+    #page-home header a {
+        /*position: absolute vai sobrepor o conteudo header tag <a> 
+        sobre todo o conteudo da pagina*/
+        position: absolute;
+
+        /*bottom 48px: vai colocar o conteudo com um distanciamento do bottom de 48px */
+        bottom: 48px;
+
+        /*centralizando o conteudo*/
+        /*left 50% vai jogar o conteudo 50% do lado esquerdo*/
+        left: 50%;
+        
+        /*transform: translateX(-50%) vai encontrar o centro*/
+        transform: translateX(-50%);
+    }
+    #page-home main {
+        align-items: center;
+    }
+}
+
+/*regra de largura minima
+min-width: 1700px = significa que quando a janela tiver um minimo de 1700px
+ele vai agir conforme as propriedades que colocarmos dentro desse @media*/
+@media (min-width: 1700px) {
+    #page-home {
+        /*background com uma distancia menor em relação ao tamanho da tela
+        vw é dinamico, então trabalha em relação ao tamanho da tela, 
+        acompanhando a janela conforme regra*/
+        background-position-x: 40vw;
+    }
+}
+
+/*regra para altura maxima
+max-height: 760px = significa que de 0px a 760px
+ele vai agir conforme as propriedades que colocarmos dentro desse @media*/
+@media (max-height: 760px) {
+    #page-home {
+        /*fixando a posição de altura(y) do background em 200px
+        ou seja, quando a tela for de 760px ou menos ele irá fixar a img de fundo*/
+        background-position-y: 200px;
+    }
+}
